@@ -332,14 +332,14 @@
     <section id="contact" class="contact">
         <h2 class="section-title">Contact Us</h2>
         <div class="contact-content">
-            <form class="contact-form">
+            <form class="contact-form" id="enquiryForm>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <input type="tel" placeholder="Your Phone Number" required>
                 <input type="datetime-local" placeholder="Your Wedding Date" required>
-                 <input type="datetime-local" placeholder="Time Slot" required>
-                <textarea placeholder="Message" rows="5" required></textarea>
-                <a href="mailto:danielwong.ws@gmail.com?subject=Wedding Enquiry&body=Hello, I would like to inquire about your services." class="cta-button">Send Enquiry</a>
+                <input type="datetime-local" placeholder="Time Slot" required>
+                <textarea id="message" placeholder="Message" rows="5" required></textarea>
+                <a href="#" id="sendEnquiry" class="cta-button">Send Enquiry</a>
             </form>
         </div>
     </section>
@@ -347,5 +347,37 @@
     <footer>
         <p>© 2024 My Wedding Ride SG. All rights reserved.</p>
     </footer>
+
+    <script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the button and form elements
+        const sendEnquiryButton = document.getElementById('sendEnquiry');
+        const enquiryForm = document.getElementById('enquiryForm');
+        
+        // Add event listener to the button
+        sendEnquiryButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default action of the link
+            
+            // Get values from the form fields
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const weddingDate = document.getElementById('weddingDate').value;
+            const timeSlot = document.getElementById('timeSlot').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the mailto link with form data
+            const mailtoLink = `mailto:youremail@example.com?subject=Wedding Enquiry&body=Hello, I would like to inquire about your services.%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AWedding Date: ${weddingDate}%0ATime Slot: ${timeSlot}%0AMessage: ${message}`;
+
+            // Update the href attribute of the link to the new mailto link
+            sendEnquiryButton.setAttribute('href', mailtoLink);
+
+            // Optionally, you can trigger the email client opening here automatically:
+            window.location.href = mailtoLink;
+        });
+    });
+</script>
+    
 </body>
 </html>
