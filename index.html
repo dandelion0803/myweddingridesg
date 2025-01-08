@@ -330,22 +330,29 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="contact-content">
-<!-- modify this form HTML and place wherever you want your form -->
-            <form action="https://formspree.io/f/xjkkpqvv" method="POST">
-              <label>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="tel" placeholder="Your Phone Number" required>
-                <input type="datetime-local" placeholder="Your Wedding Date" required>
-                <input type="datetime-local" placeholder="Time Slot" required>
-              </label>
-<!-- your other form fields go here -->
-                <button type="submit">Send Enquiry</button>
-              </form>
-            </div>
-        </section>
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-content">
+        <!-- Modified form HTML with separate labels and name attributes -->
+        <form action="https://formspree.io/f/xjkkpqvv" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <label for="phone">Your Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            
+            <label for="wedding_date">Your Wedding Date</label>
+            <input type="datetime-local" id="wedding_date" name="wedding_date" required>
+            
+            <label for="time_slot">Time Slot</label>
+            <input type="datetime-local" id="time_slot" name="time_slot" required>
+            
+            <button type="submit">Send Enquiry</button>
+        </form>
+    </div>
+</section>
 
     <footer>
         <p>© 2024 My Wedding Ride SG. All rights reserved.</p>
